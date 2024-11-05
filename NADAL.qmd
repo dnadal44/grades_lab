@@ -123,6 +123,19 @@ espionage_grades <- grades |>
 
 head(espionage_grades, 5)
 ```
+## Question 10
+
+```{r}
+espionage_grades |>
+  group_by(num_grades) |>
+  summarise(n=n()) |>
+ggplot(aes(x = num_grades, y = n)) +
+  geom_bar(stat = "identity") +
+  geom_text(aes(label = n), vjust = -0.5) +
+  labs(title = "Distribution of Number of Grades in Corporate Espionage", x = "Number of Grades", y = "Number of Students")
+```
+
+
 
 
 
