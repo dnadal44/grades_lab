@@ -160,14 +160,40 @@ average_grade_12 <- grades |>
 ```
 
 ```{r}
-average_grade_12 |>
+average_12_wide <- average_grade_12 |>
   pivot_wider(
     names_from=course,
-    values_from=avg) |>
+    values_from=avg)
+average_12_wide |>
   select(1:4) |>
   head(5) |>
   knitr::kable()
 ```
+
+## Question 13
+
+```{r}
+library(ggplot2)
+
+# Scatter plot to show the relationship
+ggplot(average_12_wide, aes(x = `Corporate Espionage and Industrial Sabotage`, 
+                            y = `Artificial Intelligence and Machine Learning`)) +
+  geom_point(alpha = 0.7) +                
+  geom_smooth(method = "lm", color = "blue", se = FALSE) +
+  labs(
+    title = "Average Grades in Artificial Intelligence and Machine Learning \nvs Corporate Espionage and Industrial Sabotage",
+    x = "Average Grade in Corporate Espionage and Industrial Sabotage",
+    y = "Average Grade in Artificial Intelligence and Machine Learning"
+  ) +
+  theme_minimal(base_size = 14) + 
+  theme(
+    plot.title = element_text(hjust = 0.5), 
+    axis.title.x = element_text(margin = margin(t = 10)),  
+    axis.title.y = element_text(margin = margin(r = 10))   
+  )
+
+```
+
 
 
 
