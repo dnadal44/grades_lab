@@ -12,4 +12,11 @@ library(tidyverse)
 library(here)
 library(vroom)
 ```
+# Introduction
+
+## Question 1
+
+```{r}
+grades <- vroom(here("data", "grades (2).csv"))
+```
 
