@@ -36,7 +36,7 @@ num_students <- grades |>
   nrow()
 cat(paste("The data set contains", num_students, "students."))
 ```
-# Question 4
+## Question 4
 
 ```{r}
 students <- grades |>
@@ -46,6 +46,19 @@ students |>
   slice (1:5) |>
   knitr::kable()
 ```
+
+## Question 5
+
+```{r}
+students |>
+  mutate(group=as.factor(group)) |>
+  group_by(group) |>
+  summarise(n=n()) |>
+  ggplot(aes(x=group, y=n)) +
+  geom_col() +
+  labs(title = "Number of Students per Group", x = "Group", y = "Number of Students")
+```
+
 
 
 
