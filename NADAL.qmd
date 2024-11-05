@@ -86,6 +86,34 @@ ggplot(grades, aes(x = grade, fill = factor(module))) +
   labs(title = "Distribution of Grades by Module", x = "Grade", fill = "Module")
 ```
 
+# Attendance analysis
+
+## Question 8
+
+```{r}
+grades_per_student <- grades %>% 
+  group_by(id, group) %>% 
+  summarize(num_grades = n())
+grades_per_student |>
+ slice_tail(n = 5) |>
+ knitr::kable()
+
+```
+```{r}
+print(min(grades_per_student$num_grades))
+print(max(grades_per_student$num_grades))
+print(mean(grades_per_student$num_grades))
+print(median(grades_per_student$num_grades))
+```
+
+| statistics      | value       |
+|-----------------|-------------|
+| min             | 60          |
+| max             | 67          |
+| min             | 64.98061    |
+| median          | 65          |
+
+
 
 
 
