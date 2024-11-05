@@ -36,6 +36,16 @@ num_students <- grades |>
   nrow()
 cat(paste("The data set contains", num_students, "students."))
 ```
+# Question 4
+
+```{r}
+students <- grades |>
+  distinct(id, group) |>
+  arrange(id)
+students |>
+  slice (1:5) |>
+  knitr::kable()
+```
 
 
 
