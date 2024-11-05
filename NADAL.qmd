@@ -56,6 +56,7 @@ students |>
   summarise(n=n()) |>
   ggplot(aes(x=group, y=n)) +
   geom_col() +
+  geom_text(aes(label = n), vjust = -0.5) +
   labs(title = "Number of Students per Group", x = "Group", y = "Number of Students")
 ```
 
@@ -73,10 +74,11 @@ grades |>
 
 ggplot(aes(x = group, y = avg_grade)) +
   geom_col() +
+  geom_text(aes(label = avg_grade), vjust = -0.5) +
   labs(title = "Average Grades in Virtual Reality and Augmented Reality by Group", x = "Group", y = "Average Grade")
 ```
 
-
+## Question 7
 
 
 
