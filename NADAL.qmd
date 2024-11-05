@@ -20,3 +20,14 @@ library(vroom)
 grades <- vroom(here("data", "grades (2).csv"))
 ```
 
+# Simple analyses
+
+## Question 2
+
+```{r}
+cat(paste("The data set contains", num_grades, "grades."))
+```
+
+
+
+
