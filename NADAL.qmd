@@ -135,6 +135,16 @@ ggplot(aes(x = num_grades, y = n)) +
   labs(title = "Distribution of Number of Grades in Corporate Espionage", x = "Number of Grades", y = "Number of Students")
 ```
 
+## Question 11
+
+```{r}
+espionage_grades |>
+  mutate(group=as.factor(group)) |>
+  group_by(group) |>
+  summarise(avg = mean(num_grades)) |>
+  ggplot(aes(y=avg, x= group)) +
+  geom_col()
+```
 
 
 
