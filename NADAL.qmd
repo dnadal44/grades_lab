@@ -25,6 +25,7 @@ grades <- vroom(here("data", "grades (2).csv"))
 ## Question 2
 
 ```{r}
+num_grades <- nrow(grades)
 cat(paste("The data set contains", num_grades, "grades."))
 ```
 
@@ -145,6 +146,31 @@ espionage_grades |>
   ggplot(aes(y=avg, x= group)) +
   geom_col()
 ```
+
+
+# Grade analysis
+
+## Question 12
+
+```{r}
+average_grade_12 <- grades |>
+  group_by(course, id, group) |>
+  mutate(avg=mean(grade)) |>
+  distinct (course, id, group, avg)
+```
+
+```{r}
+average_grade_12 |>
+  pivot_wider(
+    names_from=course,
+    values_from=avg) |>
+  select(1:4) |>
+  head(5) |>
+  knitr::kable()
+```
+
+
+
 
 
 
