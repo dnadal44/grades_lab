@@ -1,0 +1,15 @@
+---
+title: "NADAL"
+author: "DORIAN NADAL"
+format: html
+---
+
+# Configuration 
+
+```{r}
+here::i_am("grades_lab.Rproj")
+library(tidyverse)
+library(here)
+library(vroom)
+```
+
