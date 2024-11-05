@@ -196,6 +196,31 @@ ggplot(average_12_wide, aes(x = `Corporate Espionage and Industrial Sabotage`,
 
 
 
+## Question 15 
+
+```{r}
+correlations <- average_12_wide |>
+  group_by(group) |>
+  summarize(correlation = cor(`Urban Planning and Megacity Design`, `Cybernetic Implants and Augmentations`, use = "complete.obs"), .groups = "drop")
+
+
+target_group <- correlations |>
+  filter(abs(correlation) == max(abs(correlation), na.rm = TRUE)) |>
+  pull(group)
+
+
+average_12_wide |>
+  filter(group == target_group) |>
+  ggplot(aes(x = `Cybernetic Implants and Augmentations`, y = `Urban Planning and Megacity Design`)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  labs(
+    title = paste("Average Grades in Urban Planning vs. Cybernetic Implants for Group", target_group),
+    x = "Average Grade in Cybernetic Implants and Augmentations",
+    y = "Average Grade in Urban Planning and Megacity Design"
+  ) +
+  theme_minimal()
+```
 
 
 
