@@ -94,9 +94,8 @@ ggplot(grades, aes(x = grade, fill = factor(module))) +
 grades_per_student <- grades %>% 
   group_by(id, group) %>% 
   summarize(num_grades = n())
-grades_per_student |>
- slice_tail(n = 5) |>
- knitr::kable()
+
+head(grades_per_student, 5)
 
 ```
 ```{r}
@@ -113,6 +112,17 @@ print(median(grades_per_student$num_grades))
 | min             | 64.98061    |
 | median          | 65          |
 
+
+## Question 9
+
+```{r}
+espionage_grades <- grades |> 
+  filter(course == "Corporate Espionage and Industrial Sabotage") |> 
+  group_by(id, group) |> 
+  summarize(num_grades = n())
+
+head(espionage_grades, 5)
+```
 
 
 
