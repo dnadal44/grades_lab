@@ -28,6 +28,18 @@ grades <- vroom(here("data", "grades (2).csv"))
 cat(paste("The data set contains", num_grades, "grades."))
 ```
 
+## Question 3
+
+```{r}
+num_students <- grades |>
+  distinct (id) |>
+  nrow()
+cat(paste("The data set contains", num_students, "students."))
+```
+
+
+
+
 
 
 
