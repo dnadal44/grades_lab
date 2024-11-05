@@ -61,6 +61,20 @@ students |>
 
 
 
+## Question 6
+
+```{r}
+grades |> 
+  filter(course == "Virtual Reality and Augmented Reality") |> 
+  group_by(group) |> 
+  mutate(group=as.factor(group)) |>
+  summarize(avg_grade = mean(grade, na.rm = TRUE)) |>
+  print() |>
+
+ggplot(aes(x = group, y = avg_grade)) +
+  geom_col() +
+  labs(title = "Average Grades in Virtual Reality and Augmented Reality by Group", x = "Group", y = "Average Grade")
+```
 
 
 
