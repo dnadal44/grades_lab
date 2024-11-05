@@ -80,5 +80,12 @@ ggplot(aes(x = group, y = avg_grade)) +
 
 ## Question 7
 
+```{r}
+ggplot(grades, aes(x = grade, fill = factor(module))) +
+  geom_density(alpha = 0.5) +
+  labs(title = "Distribution of Grades by Module", x = "Grade", fill = "Module")
+```
+
+
 
 
